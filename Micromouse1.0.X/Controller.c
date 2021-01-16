@@ -3,33 +3,8 @@
 #include "Controller.h"
 
 //******************************************************************************
-float curSpeedX = 0;
-float curSpeedW = 0;
-int targetSpeedX = 0;
-int targetSpeedW = 0;
-int encoderFeedbackX = 0;
-int encoderFeedbackW = 0;
-float pidInputX = 0;
-float pidInputW = 0;
-float posErrorX = 0;
-float posErrorW = 0;
-float oldPosErrorX = 0;
-float oldPosErrorW = 0;
-int posPwmX = 0;
-int posPwmW = 0;
-float kpX = 2, kdX = 4;
-float kpW = 1, kdW = 12;//used in straight
-float kpW1 = 1;//used for T1 and T3 in curve turn
-float kdW1 = 26;
-float kpW2 = 1;//used for T2 in curve turn
-float kdW2 = 36;
-float accX = 600;//6m/s/s  
-float decX = 600; 
-float accW = 1; //cm/s^2
-float decW = 1;
 
 
-/*
 int discard=0;
 
 int positionA=0;
@@ -57,7 +32,6 @@ float kdW=0.07;
 int Ux=0;
 int Uw=0;
 
-*/
 
 
 void Set_Position(void){
@@ -71,7 +45,7 @@ void PD_Control(){
 	positionB = POS2CNT;
   
     positionX = ((positionA + positionB)/2)*0.2; //mm
-    positionW = Get_AngleZ(); //°
+    positionW = Get_AngleZ(); //Â°
   
         
     errorX = targetPositionX - positionX;
